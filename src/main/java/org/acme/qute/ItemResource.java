@@ -3,6 +3,7 @@ package org.acme.qute;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
@@ -75,7 +76,7 @@ public class ItemResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance get() {
-        allInstances.stream().forEach(Item::sayHello);
+        allInstances.stream().collect(Collectors.toList()).parallelStream().forEach(Item::sayHello);
         List<ItemOrig> data = new ArrayList<>();
         data.add(new ItemOrig(new BigDecimal(10), "Apple"));
         data.add(new ItemOrig(new BigDecimal(16), "Pear"));
