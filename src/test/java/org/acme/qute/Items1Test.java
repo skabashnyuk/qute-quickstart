@@ -1,11 +1,12 @@
 package org.acme.qute;
 
+import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
-
+@QuarkusTestResource(DatabaseResource.class)
 @QuarkusTest
 public class Items1Test {
     @Inject
