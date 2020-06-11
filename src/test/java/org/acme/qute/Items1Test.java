@@ -2,6 +2,8 @@ package org.acme.qute;
 
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
+import org.eclipse.microprofile.config.Config;
+import org.eclipse.microprofile.config.ConfigProvider;
 import org.junit.jupiter.api.Test;
 
 import javax.enterprise.inject.Instance;
@@ -61,6 +63,9 @@ public class Items1Test {
     @Test
 
     public void testEndpoint() {
+        itemC.sayHello();
+        Config config = ConfigProvider.getConfig();
+        System.out.println(config);
         allInstances.stream().forEach(Item::sayHello);
     }
 
