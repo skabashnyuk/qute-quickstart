@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
+import java.util.stream.Collectors;
 
 @QuarkusTest
 public class Items4Test {
@@ -13,7 +14,7 @@ public class Items4Test {
 
     @Test
     public void testEndpoint3() {
-        allInstances.stream().forEach(Item::sayHello);
+        allInstances.stream().collect(Collectors.toList()).parallelStream().forEach(Item::sayHello);
     }
 
 }

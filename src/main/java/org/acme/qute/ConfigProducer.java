@@ -18,7 +18,6 @@ public class ConfigProducer {
 
     @Produces
     public org.acme.qute.Config produce() {
-        config.getPropertyNames().forEach(System.out::println);
         return new org.acme.qute.Config();
     }
 }
